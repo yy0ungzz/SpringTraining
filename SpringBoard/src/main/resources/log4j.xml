@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- logger 태그를 이용하여 log를 남길 패키지를 지정할 수 있다. -->
+	<!-- Application Loggers -->
+	
+	<!-- 로그레벨은 FATAL > ERROR > WARN > INFO > DEBUG > TRACE 순서이며 -->
+	<!-- ex) 로그레벨을 DEBUG로 설정하면 FATAL ~ DEBUG 까지 출력된다 -->
+	<!-- ex) 로그레벨을 WARN으로 설정하면 INFO ~ TRACE 까지는 출력되지 않는다 -->
+	
+	<!-- Application Loggers -->
+	<logger name="web">
+		<level value="debug"/>
+	</logger>
+	
+	<!-- MyBatis Loggers Proxy로서의 역할을 하는 -->
+	<logger name="jdbc.connection">
+		<level value="WARN"/>
+	</logger>
+	
+	<logger name="jdbc.audit">
+		<level value="WARN"/>
+	</logger>
+	
+	<logger name="jdbc.sqlonly">
+		<level value="WARN"/>
+	</logger>
+	
+	<logger name="jdbc.resultset">
+		<level value="WARN"/>
+	</logger>
+	
+	<logger name="jdbc.resultsettable">
+		<level value="INFO"/>
+	</logger>
+	
+	<logger name="jdbc.sqltiming">
+		<level value="INFO"/>
+	</logger>
+	
+	<logger name="org.mybatis">
+		<level value="WARN"/>
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+	</root>
+	
+</log4j:configuration>
