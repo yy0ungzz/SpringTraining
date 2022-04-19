@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import util.Paging;
 import web.dao.face.BoardDao;
 import web.dto.Board;
 import web.service.face.BoardService;
@@ -19,12 +20,22 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	BoardDao boardDao;
 	
+
 	@Override
-	public List<Board> list() {
+	public List<Board> list(Paging paging) {
+		return boardDao.selectList(paging);
+	}
+
+	@Override
+	public Paging getPaging(Paging paramData) {
 		
-		logger.info("BoardService의 list method 호출 ");
+		//총 게시글 조회
+		int totalCount = boardDao.selectCntAll();
 		
-		return boardDao.selectAll();
+		//페이징 계산
+		Paging paging = new Paging(totalCount, paramData.getCurPage());
+		
+		return paging;
 	}
 
 }

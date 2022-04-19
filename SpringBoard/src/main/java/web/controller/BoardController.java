@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
+import util.Paging;
 import web.dto.Board;
 import web.service.face.BoardService;
 
@@ -21,13 +21,22 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
-	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public void boardList(Model model) {
+	@RequestMapping(value = "/board/list")
+	public void list(Paging paramData, Model model) {
 		
-		logger.info("/board/list [GET]");
+		logger.info("/board/list [Connection]");
 		
-		List<Board> list = boardService.list();
+		//페이징 계산
+		Paging paging = boardService.getPaging(paramData);
+		logger.info("{}", paging);
 		
+		//게시글 목록 조회
+		List<Board> list = boardService.list(paging);
+		for (Board b : list) {
+			logger.info("{}", b);
+		}
+		
+		model.addAttribute("paging", paging);
 		model.addAttribute("list", list);
 	}
 }

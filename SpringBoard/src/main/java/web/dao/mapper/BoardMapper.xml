@@ -5,9 +5,31 @@
   
 <mapper namespace="web.dao.face.BoardDao">
 	
-	<select id="selectAll" resultType="web.dto.Board">
-		SELECT * FROM board
-		ORDER BY board_no
+	<!-- 조회된 컬럼명과 dto의 컬럼명을 일치 시켜주기 위해 mybatis-config 파일에 
+	표기법을 일괄적으로 바꿔주는 태그를 적용 시키거나 resultMap태그를 이용한다. -->
+	
+	<resultMap type="web.dto.Board" id="Board">
+		<id column="board_no" property="boardNo"/>
+		<result column="writer_id" property="writerId"/>
+		<result column="writer_nick" property="writerNick"/>
+		<result column="writer_date" property="writerDate"/>
+	</resultMap>
+	
+	<select id="selectList" resultMap="Board" parameterType="web.util.Paging">
+		SELECT * FROM (
+			SELECT rownum rnum, B.* FROM (
+				SELECT 
+					board_no, title, content
+					, writer_id, writer_nick, hit, write_date
+				FROM board
+				ORDER BY board_no DESC
+			) B
+		) BOARD
+		WHERE rnum BETWEEN #{startNo} AND #{endNo}
+	</select>
+	
+	<select id="selectCntAll" resultType="int">
+		SELECT count(*) FROM board
 	</select>
 	
 </mapper>
