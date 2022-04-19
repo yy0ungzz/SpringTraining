@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import util.Paging;
+import web.util.Paging;
 import web.dto.Board;
 import web.service.face.BoardService;
 
@@ -28,7 +28,7 @@ public class BoardController {
 		
 		//페이징 계산
 		Paging paging = boardService.getPaging(paramData);
-		logger.info("{}", paging);
+		logger.info("paging 객체 {}", paging);
 		
 		//게시글 목록 조회
 		List<Board> list = boardService.list(paging);

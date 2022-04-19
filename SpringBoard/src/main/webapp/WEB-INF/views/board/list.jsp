@@ -4,22 +4,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<c:import url="/WEB-INF/views/layout/header.jsp"/>
 
-<h1 align="center">Spring Training Board List Test</h1>
+<div class="container">
+
+<h1>Board List 게시판 리스트</h1>
 <hr>
 
-<c:forEach var="board" items="${list }">
-	<div>
-		<c:out value="${board}"></c:out>
-	</div>
-</c:forEach>
+<table class="table table-striped table-hover">
 
-</body>
-</html>
+<thead>
+	<tr>
+		<th style="width: 10%;">글번호</th>
+		<th style="width: 45%;">제목</th>
+		<th style="width: 20%;">작성자</th>
+		<th style="width: 10%;">조회수</th>
+		<th style="width: 15%;">작성일</th>
+	</tr>
+</thead>
+
+
+<tbody>
+	<c:forEach var="board" items="${list }">
+		<tr>
+			<td>${board.boardNo }</td>
+			<td>${board.title }</td>
+			<td>${board.writerNick }</td>
+			<td>${board.hit }</td>
+			<td><fmt:formatDate value="${board.writeDate }" pattern="yy-MM-dd HH:mm:ss"/></td>
+		</tr>
+	</c:forEach>
+</tbody>
+
+</table>
+
+<!-- total 게시글 보여주는 태그 -->
+<span class="pull-right">total : ${paging.totalCount }</span>
+<div class="clearfix"></div>
+
+<!-- 페이징 jsp -->
+<c:import url="/WEB-INF/views/layout/paging.jsp"></c:import>
+
+</div> <!-- .container end -->
+
+<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>

@@ -9,11 +9,11 @@ public class Board {
 	private String writerId;
 	private String writerNick;
 	private int hit;
-	private Date writerDate;
+	private Date writeDate;
 	@Override
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writerId=" + writerId
-				+ ", writerNick=" + writerNick + ", hit=" + hit + ", writerDate=" + writerDate + "]";
+				+ ", writerNick=" + writerNick + ", hit=" + hit + ", writeDate=" + writeDate + "]";
 	}
 	public int getBoardNo() {
 		return boardNo;
@@ -51,10 +51,10 @@ public class Board {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public Date getWriterDate() {
-		return writerDate;
+	public Date getWriteDate() {
+		return writeDate;
 	}
-	public void setWriterDate(Date writerDate) {
-		this.writerDate = writerDate;
+	public void setWriteDate(Date writeDate) {
+		this.writeDate = writeDate;
 	}
 }

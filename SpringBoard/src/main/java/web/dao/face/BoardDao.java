@@ -2,7 +2,7 @@ package web.dao.face;
 
 import java.util.List;
 
-import util.Paging;
+import web.util.Paging;
 import web.dto.Board;
 
 public interface BoardDao {
