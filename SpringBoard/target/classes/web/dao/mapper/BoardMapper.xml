@@ -12,7 +12,7 @@
 		<id column="board_no" property="boardNo"/>
 		<result column="writer_id" property="writerId"/>
 		<result column="writer_nick" property="writerNick"/>
-		<result column="writer_date" property="writerDate"/>
+		<result column="write_date" property="writeDate"/>
 	</resultMap>
 	
 	<select id="selectList" resultMap="Board" parameterType="web.util.Paging">

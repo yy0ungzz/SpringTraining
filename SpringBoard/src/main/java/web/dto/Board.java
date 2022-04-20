@@ -3,6 +3,7 @@ package web.dto;
 import java.util.Date;
 
 public class Board {
+	
 	private int boardNo;
 	private String title;
 	private String content;
@@ -10,6 +11,7 @@ public class Board {
 	private String writerNick;
 	private int hit;
 	private Date writeDate;
+	
 	@Override
 	public String toString() {
 		return "Board [boardNo=" + boardNo + ", title=" + title + ", content=" + content + ", writerId=" + writerId
