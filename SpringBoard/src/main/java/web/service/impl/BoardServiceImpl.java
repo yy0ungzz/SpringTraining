@@ -15,14 +15,14 @@ import web.service.face.BoardService;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-	private static final Logger logger = LoggerFactory.getLogger(BoardService.class);
+	//private static final Logger logger = LoggerFactory.getLogger(BoardService.class);
 	
 	@Autowired
 	BoardDao boardDao;
 	
 	@Override
 	public Paging getPaging(Paging paramData) {
-		logger.info("BoardService getPaging 호출!");
+		//logger.info("BoardService getPaging 호출!");
 		
 		//총 게시글 조회
 		int totalCount = boardDao.selectCntAll();
@@ -35,7 +35,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<Board> list(Paging paging) {
-		logger.info("BoardService list method 호출!");
+		//logger.info("BoardService list method 호출!");
 		return boardDao.selectList(paging);
 	}
 }

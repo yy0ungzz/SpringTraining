@@ -6,6 +6,23 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 
+<style type="text/css">
+
+table {
+	table-layout: fixed;
+}
+
+table, th {
+	text-align: center;
+}
+
+td: nth-child(2){
+	text-align: left;
+}
+
+</style>
+
+
 <div class="container">
 
 <h1>Board List 게시판 리스트</h1>
