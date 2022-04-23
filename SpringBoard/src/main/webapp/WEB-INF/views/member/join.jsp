@@ -5,21 +5,64 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	/* 취소 버튼을 누르면 방문기록 이전으로 이동 */
+	$("#cancel").click(function() {
+		history.go(-1)
+	})
+	
+	/* 페이지 이동 하는 순간 입력폼 아이디칸에 마우스 커서 자동으로 생김*/
+	$("#id").focus()
+	
+})
+
+</script>
+
 <div class="container">
 
 <h1>Join 회원가입</h1>
-<hr>
 
-	<form action="/member/joinProc" method="post">
-	
-	<label for="id">ID(아이디) : <input type="text" name="id" id="id"></label><br>
-	<label for="pw">PW(비밀번호) : <input type="text" name="pw" id="pw"></label><br>
-	<label for="nick">NICKNAME(닉네임) : <input type="text" name="nick" id="nick"></label><br><br>
-	
-	<button>회원가입</button>
-	
-	</form>
+<div>
+
+<form class="form-horizontal" action="/member/join" method="post">
+
+<div class="form-group">
+	<label for="id" class="col-sm-3 control-label">ID(아이디) : </label>
+	<div class="col-sm-5">
+		<input type="text" class="form-control" id="id" name="id" placeholder="아이디 입력">
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="pw" class="col-sm-3 control-label">PW(비밀번호) : </label>
+	<div class="col-sm-5">
+		<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호 입력">
+	</div>
+</div>
+
+<div class="form-group">
+	<label for="nick" class="col-sm-3 control-label">Nick(닉네임) : </label>
+	<div class="col-sm-5">
+		<input type="text" class="form-control" id="nick" name="nick" placeholder="닉네임 입력">
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-offset-5">
+		<button class="btn btn-primary">회원가입</button>
+		<input type="reset" id="cancel" class="btn btn-danger" value="취소">
+	</div>
+</div>
+
+</form>
 
 </div>
+
+
+</div> <!-- .container end -->
+
 
 <c:import url="/WEB-INF/views/layout/footer.jsp"/>

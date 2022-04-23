@@ -5,9 +5,19 @@
   
 <mapper namespace="web.dao.face.MemberDao">
 
-	<select id="selectCnt" parameterType="web.dto.Member" resultType="int">
+	<select id="selectCntMember" parameterType="web.dto.Member" resultType="int">
 		SELECT count(*) FROM member
 		WHERE id = #{id} AND pw = #{pw}
+	</select>
+	
+	<select id="selectNickByMember" parameterType="web.dto.Member" resultType="String">
+		SELECT nick FROM member
+		WHERE id = #{id}
+	</select>
+	
+	<select id="selectCntById" resultType="int" parameterType="web.dto.Member">
+		SELECT count(*) FROM member
+		WHERE id = #{id}
 	</select>
 	
 	<insert id="insert" parameterType="web.dto.Member">

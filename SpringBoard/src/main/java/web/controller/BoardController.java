@@ -39,4 +39,5 @@ public class BoardController {
 		model.addAttribute("paging", paging);
 		model.addAttribute("list", list);
 	}
+	
 }

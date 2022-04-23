@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title> : : : Spring Project : : : </title>
 
 <!-- jQuery 2.2.4 -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
@@ -44,5 +44,5 @@
 <div class="wrap">
 
 <header class="header">
-	<h1>Spring Training Board List Test</h1>
+	<h1><a href="/">Spring Training Board List Test</a></h1>
 </header>
