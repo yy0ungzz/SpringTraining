@@ -35,6 +35,6 @@ public interface BoardService {
 	 * @param boardNo - 게시글 번호
 	 * @return 게시글 상세내용이 담긴 Board DTO 객체
 	 */
-	public Board view(int boardNo);
+	public Board view(Board viewBoard);
 
 }

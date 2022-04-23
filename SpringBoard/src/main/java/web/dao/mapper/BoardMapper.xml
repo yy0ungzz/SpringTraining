@@ -32,13 +32,17 @@
 		SELECT count(*) FROM board
 	</select>
 	
-	<update id="hit" parameterType="int">
+	<update id="hit" parameterType="web.dto.Board">
 		UPDATE board SET hit = hit + 1
 		WHERE board_no = #{boardNo}
 	</update>
 	
-	<select id="select" parameterType="int" resultMap="Board">
-		SELECT * FROM board 
+	<!-- 전체 컬럼을 조회할 때 *기호 보다는 모든 컬럼명을 입력해주는 것이 유지 보수에 좋다. -->	
+	<select id="select" parameterType="web.dto.Board" resultMap="Board">
+		SELECT 
+			board_no, title, content
+			, writer_id, writer_nick, hit, write_date
+		FROM board 
 		WHERE board_no = #{boardNo}
 	</select>
 	

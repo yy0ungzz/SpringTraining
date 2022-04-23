@@ -43,18 +43,30 @@ public class BoardController {
 		model.addAttribute("list", list);
 	}
 	
-	@GetMapping(value = "/board/view")
-	public void viewDetail(Model model, @RequestParam("boardNo") int boardNo) {
+	@GetMapping("/board/view")
+	public String viewDetail(Board viewBoard, Model model 
+			//RequestParam을 이용하여 Query String을 이용한 파라미터를 받을 수 있다.
+			//@RequestParam("boardNo") int boardNo
+			) {
 		
 		logger.info("/board/view [GET]");
 		
-		logger.info("선택한 게시글의 게시글 번호 : {} ", boardNo);
+		logger.info("선택한 게시글의 게시글 번호 viewBoard boardNo : {}", viewBoard);
+		
+		
+		//클라이언트 측에서 직접 URL을 입력하여 올바르지 못한 접속을 하려 할 때
+		if (viewBoard.getBoardNo() < 1) {
+			return "redirect:/board/list";
+		}
 		
 		//전달 받은 게시글 번호를 통해서 게시글의 상세 내용 조회
-		Board boardDetail = boardService.view(boardNo);
+		viewBoard = boardService.view(viewBoard);
+		logger.info("조회된 게시글 : {}", viewBoard);
 		
 		//boardNo에 해당되는 상세내용 모델값으로 전송
-		model.addAttribute("boardDetail", boardDetail);
+		model.addAttribute("viewBoard", viewBoard);
+		
+		return "board/view";
 		
 	}
 }

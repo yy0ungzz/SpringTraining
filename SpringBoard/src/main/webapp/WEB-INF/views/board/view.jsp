@@ -18,7 +18,7 @@ $(document).ready(function() {
 <h1>게시글 상세내용 (Board Detail View)</h1>
 <hr>
 
-${boardDetail }
+${viewBoard }
 
 
 </div> <!-- .container end -->
