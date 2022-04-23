@@ -45,7 +45,7 @@ td: nth-child(2){
 	<c:forEach var="board" items="${list }">
 		<tr>
 			<td>${board.boardNo }</td>
-			<td>${board.title }</td>
+			<td><a href="/board/view?boardNo=${board.boardNo }">${board.title }</a></td>
 			<td>${board.writerNick }</td>
 			<td>${board.hit }</td>
 			<td><fmt:formatDate value="${board.writeDate }" pattern="yy-MM-dd HH:mm:ss"/></td>

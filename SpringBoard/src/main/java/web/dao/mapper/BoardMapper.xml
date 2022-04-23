@@ -32,4 +32,14 @@
 		SELECT count(*) FROM board
 	</select>
 	
+	<update id="hit" parameterType="int">
+		UPDATE board SET hit = hit + 1
+		WHERE board_no = #{boardNo}
+	</update>
+	
+	<select id="select" parameterType="int" resultMap="Board">
+		SELECT * FROM board 
+		WHERE board_no = #{boardNo}
+	</select>
+	
 </mapper>

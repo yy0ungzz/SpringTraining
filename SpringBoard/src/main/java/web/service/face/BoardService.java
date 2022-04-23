@@ -28,4 +28,13 @@ public interface BoardService {
 	 */
 	public List<Board> list(Paging paging);
 
+	/**
+	 * 게시글번호를 통해서 상세내용 조회 한다.
+	 * 게시글 상세조회 하는 순간 hit 컬럼 1상승 조회수 상승한다.
+	 * 
+	 * @param boardNo - 게시글 번호
+	 * @return 게시글 상세내용이 담긴 Board DTO 객체
+	 */
+	public Board view(int boardNo);
+
 }

@@ -38,4 +38,14 @@ public class BoardServiceImpl implements BoardService {
 		//logger.info("BoardService list method 호출!");
 		return boardDao.selectList(paging);
 	}
+	
+	@Override
+	public Board view(int boardNo) {
+		
+		//조회수를 상승 시킨다.
+		boardDao.hit(boardNo);
+		
+		return boardDao.select(boardNo);
+		
+	}
 }

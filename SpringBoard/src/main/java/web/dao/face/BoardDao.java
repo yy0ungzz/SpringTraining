@@ -24,4 +24,19 @@ public interface BoardDao {
 	 */
 	public int selectCntAll();
 
+	/**
+	 * boarNo 해당 게시글의 조회수가 1 상승한다.
+	 * 
+	 * @param boardNo - 조회하려는 게시글 번호
+	 */
+	public void hit(int boardNo);
+
+	/**
+	 * boardNo 해당 게시글의 상세 정보 조회
+	 * 
+	 * @param boardNo - 조회하려는 boardNo
+	 * @return 게시글 내용에 대한 DTO 객체
+	 */
+	public Board select(int boardNo);
+
 }
