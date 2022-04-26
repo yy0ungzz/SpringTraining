@@ -48,4 +48,16 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.select(viewBoard);
 		
 	}
+	
+	@Override
+	public void write(Board board) {
+		
+		//제목이 빈칸 일 때, 제목없음
+		if ("".equals(board.getTitle()) || board.getTitle() == null) {
+			board.setTitle("(제목없음)");
+		}
+		
+		boardDao.insert(board);
+		
+	}
 }

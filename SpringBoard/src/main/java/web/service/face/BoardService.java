@@ -37,4 +37,11 @@ public interface BoardService {
 	 */
 	public Board view(Board viewBoard);
 
+	/**
+	 * 게시글 입력폼에서 입력한 내용을 전달 받아 게시한다.
+	 * 
+	 * @param board - 게시글의 제목, 내용이 담긴 Board DTO 객체
+	 */
+	public void write(Board board);
+
 }

@@ -6,6 +6,16 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp"/>
 
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#btnWrite").click(function() {
+		location.href = "/board/write"
+	})
+})
+
+</script>
+
 <style type="text/css">
 
 table {
@@ -55,13 +65,15 @@ td: nth-child(2){
 
 </table>
 
+
+<span class="pull-left"><button id="btnWrite">글쓰기</button></span>
 <!-- total 게시글 보여주는 태그 -->
 <span class="pull-right">total : ${paging.totalCount }</span>
 <div class="clearfix"></div>
 
 <!-- 페이징 jsp -->
-<c:import url="/WEB-INF/views/layout/paging.jsp"></c:import>
+<c:import url="/WEB-INF/views/layout/paging.jsp"/>
 
 </div> <!-- .container end -->
 
-<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+<c:import url="/WEB-INF/views/layout/footer.jsp"/>

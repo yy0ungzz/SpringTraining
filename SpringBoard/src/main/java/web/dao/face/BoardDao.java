@@ -39,4 +39,11 @@ public interface BoardDao {
 	 */
 	public Board select(Board viewBoard);
 
+	/**
+	 * board DTO객체에 있는 제목과 내용을 insert하는 쿼리문을 실행
+	 * 
+	 * @param board - insert하려는 제목, 내용이 있는 DTO객체
+	 */
+	public void insert(Board board);
+
 }

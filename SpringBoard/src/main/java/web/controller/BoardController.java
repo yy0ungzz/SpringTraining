@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import web.util.Paging;
 import web.dto.Board;
@@ -69,4 +69,22 @@ public class BoardController {
 		return "board/view";
 		
 	}
+	
+	@GetMapping("/board/write")
+	public void boardGet() {
+		logger.info("/board/write [GET]");
+	}
+	
+	@PostMapping("/board/write")
+	public String boardPost(Model model, Board board) {
+		
+		logger.info("/board/write [POST]");
+		
+		logger.info("Board - {}", board);
+		
+		boardService.write(board);
+		
+		return "redirect:/board/list";
+	}
+	
 }

@@ -46,4 +46,9 @@
 		WHERE board_no = #{boardNo}
 	</select>
 	
+	<insert id="insert" parameterType="web.dto.Board">
+		INSERT INTO board
+		VALUES (board_seq.nextval, #{title}, #{content}, #{writerId}, #{writerNick}, 0, sysdate)
+	</insert>
+	
 </mapper>
