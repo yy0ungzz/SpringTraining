@@ -71,12 +71,12 @@ public class BoardController {
 	}
 	
 	@GetMapping("/board/write")
-	public void boardGet() {
+	public void write() {
 		logger.info("/board/write [GET]");
 	}
 	
 	@PostMapping("/board/write")
-	public String boardPost(Model model, Board board, MultipartFile file) {
+	public String writeProcess(Model model, Board board, MultipartFile file) {
 		
 		logger.info("/board/write [POST]");
 		
