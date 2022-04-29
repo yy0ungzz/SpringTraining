@@ -27,21 +27,23 @@ $(document).ready(function() {
 <h1>글쓰기 입력 폼</h1>
 <hr>
 
-<form class="form-horizontal" action="/board/write" method="post">
+<form class="form-horizontal" action="/board/write" method="post" enctype="multipart/form-data">
 
 <div class="form-group">
-	<label for="title" class="col-sm-3 control-label">제목(title) : </label>
+	<label class="col-sm-3 control-label">제목(title) : </label>
 	<div class="col-sm-5">
 		<input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력하세요.">
 	</div>
 </div>
 
 <div class="form-group">
-	<label for="title" class="col-sm-3 control-label">내용(content) : </label>
+	<label class="col-sm-3 control-label">내용(content) : </label>
 	<div class="col-sm-5">
 		<textarea class="form-control" rows="5" placeholder="내용을 입력하세요" name="content"></textarea>
 	</div>
 </div>
+
+<label>첨부파일<input type="file" name="file"></label>
 
 <div class="text-center">
 	<button class="btn btn-primary" id="btnWrite">작성</button>

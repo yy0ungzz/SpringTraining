@@ -2,8 +2,9 @@ package web.dao.face;
 
 import java.util.List;
 
-import web.util.Paging;
 import web.dto.Board;
+import web.dto.BoardFile;
+import web.util.Paging;
 
 public interface BoardDao {
 
@@ -45,5 +46,12 @@ public interface BoardDao {
 	 * @param board - insert하려는 제목, 내용이 있는 DTO객체
 	 */
 	public void insert(Board board);
+	
+	/**
+	 * 업로드할 파일의 정보를 insert하는 쿼리문 실행 
+	 * 
+	 * @param boardFile - insert하려는 원본 파일명, UUID 파일명
+	 */
+	public void insertFile(BoardFile boardFile);
 
 }

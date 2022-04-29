@@ -2,7 +2,6 @@ package web.controller;
 
 import java.util.List;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
-import web.util.Paging;
 import web.dto.Board;
 import web.service.face.BoardService;
+import web.util.Paging;
 
 @Controller
 public class BoardController {
@@ -76,13 +76,16 @@ public class BoardController {
 	}
 	
 	@PostMapping("/board/write")
-	public String boardPost(Model model, Board board) {
+	public String boardPost(Model model, Board board, MultipartFile file) {
 		
 		logger.info("/board/write [POST]");
 		
+		//게시글 정보
 		logger.info("Board - {}", board);
+		//첨부파일 정보
+		logger.info("File - {}", file);
 		
-		boardService.write(board);
+		boardService.write(board, file);
 		
 		return "redirect:/board/list";
 	}

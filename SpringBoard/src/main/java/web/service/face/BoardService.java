@@ -2,8 +2,10 @@ package web.service.face;
 
 import java.util.List;
 
-import web.util.Paging;
+import org.springframework.web.multipart.MultipartFile;
+
 import web.dto.Board;
+import web.util.Paging;
 
 public interface BoardService {
 	
@@ -39,9 +41,11 @@ public interface BoardService {
 
 	/**
 	 * 게시글 입력폼에서 입력한 내용을 전달 받아 게시한다.
+	 * 전달 받은 multipartfile 정보도 함께 전달 받는다.
 	 * 
 	 * @param board - 게시글의 제목, 내용이 담긴 Board DTO 객체
+	 * @parma file - 업로드될 파일정보 객체
 	 */
-	public void write(Board board);
-
+	public void write(Board board, MultipartFile file);
+	
 }
