@@ -59,4 +59,24 @@
 		VALUES (boardfile_seq.nextval, #{boardNo}, #{originName}, #{storedName})
 	</insert>
 	
+	<!-- 1. 조회된 컬럼명과 DTO객체의 변수명이 다르기 때문에 resultMap으로 설정한다. -->
+	<!-- 2. 컬럼에 alias 부여 -->
+	<select id="selectBoardFileByBoardNo" resultType="web.dto.BoardFile" parameterType="web.dto.Board">
+		SELECT file_no fileNo
+			, board_no boardNo
+			, origin_name originName
+			, stored_name storedName 
+		FROM boardfile 
+		WHERE board_no = #{boardNo}
+	</select>
+	
+	<select id="selectBoardFileByFileNo" resultType="web.dto.BoardFile" parameterType="web.dto.BoardFile">
+		SELECT file_no fileNo
+			, board_no boardNo
+			, origin_name originName
+			, stored_name storedName 
+		FROM boardfile 
+		WHERE file_no = #{fileNo}
+	</select>
+	
 </mapper>

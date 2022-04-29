@@ -126,4 +126,14 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.insertFile(boardFile);
 		
 	}
+	
+	@Override
+	public BoardFile getAttachFile(Board viewBoard) {
+		return boardDao.selectBoardFileByBoardNo(viewBoard);
+	}
+	
+	@Override
+	public BoardFile getFile(BoardFile boardFile) {
+		return boardDao.selectBoardFileByFileNo(boardFile);
+	}
 }

@@ -55,6 +55,9 @@ $(document).ready(function() {
 
 </table>
 
+<img alt="이미지 없음" src="/">
+<a href="/board/download?fileNo=${boardFile.fileNo }">${boardFile.originName }</a>
+
 <div class="text-center">
 	<button class="btn btn-default" id="btnList">목록</button>
 	<button class="btn btn-primary" id="btnUpdate">수정</button>

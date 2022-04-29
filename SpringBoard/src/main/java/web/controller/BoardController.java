@@ -2,6 +2,8 @@ package web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import web.dto.Board;
+import web.dto.BoardFile;
 import web.service.face.BoardService;
 import web.util.Paging;
 
@@ -66,6 +69,10 @@ public class BoardController {
 		//boardNo에 해당되는 상세내용 모델값으로 전송
 		model.addAttribute("viewBoard", viewBoard);
 		
+		//첨부파일 정보 모델값 전달
+		BoardFile boardFile = boardService.getAttachFile(viewBoard);
+		model.addAttribute("boardFile", boardFile);
+		
 		return "board/view";
 		
 	}
@@ -76,9 +83,13 @@ public class BoardController {
 	}
 	
 	@PostMapping("/board/write")
-	public String writeProcess(Model model, Board board, MultipartFile file) {
+	public String writeProcess(Model model, Board board, MultipartFile file, HttpSession session) {
 		
 		logger.info("/board/write [POST]");
+		
+		//세션정보 board DTO객체에 저장
+		board.setWriterId((String) session.getAttribute("id"));
+		board.setWriterNick((String) session.getAttribute("nick"));
 		
 		//게시글 정보
 		logger.info("Board - {}", board);
@@ -87,7 +98,19 @@ public class BoardController {
 		
 		boardService.write(board, file);
 		
-		return "redirect:/board/list";
+//		return "redirect:/board/list"; //게시글 목록
+		
+		return "redirect:/board/view?boardNo=" + board.getBoardNo(); //작성한 게시글 상세보기
+	}
+	
+	@RequestMapping("/board/download")
+	public String download(BoardFile boardFile, Model model) {
+		
+		boardFile = boardService.getFile(boardFile);
+		model.addAttribute("downFile", boardFile);
+		
+		return "down";
+		
 	}
 	
 }

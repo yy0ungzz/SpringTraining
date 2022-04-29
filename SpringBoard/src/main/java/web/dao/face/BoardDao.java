@@ -54,4 +54,20 @@ public interface BoardDao {
 	 */
 	public void insertFile(BoardFile boardFile);
 
+	/**
+	 * 게시글 번호를 이용하여 첨부파일 정보를 조회한다.
+	 * 
+	 * @param viewBoard - 조회할 게시글 번호
+	 * @return 조회된 첨부파일 번호
+	 */
+	public BoardFile selectBoardFileByBoardNo(Board viewBoard);
+
+	/**
+	 * 파일번호를 이용하여 첨부파일 정보를 조회한다.
+	 * 
+	 * @param boardFile - 조회할 파일 번호
+	 * @return - 조회된 파일정보
+	 */
+	public BoardFile selectBoardFileByFileNo(BoardFile boardFile);
+
 }

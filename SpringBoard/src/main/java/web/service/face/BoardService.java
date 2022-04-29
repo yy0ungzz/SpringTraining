@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 import web.dto.Board;
+import web.dto.BoardFile;
 import web.util.Paging;
 
 public interface BoardService {
@@ -47,5 +48,21 @@ public interface BoardService {
 	 * @parma file - 업로드될 파일정보 객체
 	 */
 	public void write(Board board, MultipartFile file);
+
+	/**
+	 * 게시글 번호를 이용하여 업로드된 파일정보를 조회한다.
+	 * 
+	 * @param viewBoard - 조회할 게시글의 번호를 가진 객체
+	 * @return 첨부파일의 정보
+	 */
+	public BoardFile getAttachFile(Board viewBoard);
+	
+	/**
+	 * 파일 번호를 이용하여 업로드된 파일 정보를 조회한다.
+	 * 
+	 * @param boardFile - 조회할 파일번호를 가진 객체 
+	 * @return - 첨부파일의 정보
+	 */
+	public BoardFile getFile(BoardFile boardFile);
 	
 }
