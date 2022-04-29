@@ -66,7 +66,7 @@ td: nth-child(2){
 </table>
 
 
-<button id="btnWrite" class="btn btn-primary pull-left">글쓰기</button>
+<span class="pull-left"><button id="btnWrite">글쓰기</button></span>
 <!-- total 게시글 보여주는 태그 -->
 <span class="pull-right">total : ${paging.totalCount }</span>
 <div class="clearfix"></div>

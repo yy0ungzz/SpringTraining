@@ -104,6 +104,8 @@ public class BoardServiceImpl implements BoardService {
 		//최종 저장할 파일의 정보 객체
 		File dest = new File(storedFolder, filename);
 		
+		logger.info("file : {}", file);
+		
 		//업로드된 파일을 저장하기
 		//transferTo(File dest) -> 파일을 지정된 경로로 전송한다.
 		try {
