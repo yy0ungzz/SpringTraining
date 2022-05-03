@@ -49,7 +49,7 @@
 	<insert id="insert" parameterType="web.dto.Board">
 		<selectKey order="BEFORE" keyProperty="boardNo" resultType="int">
 			SELECT board_seq.nextval FROM dual
-		</selectKey>
+ 		</selectKey>
 		INSERT INTO board
 		VALUES (#{boardNo}, #{title}, #{content}, #{writerId}, #{writerNick}, 0, sysdate)
 	</insert>
