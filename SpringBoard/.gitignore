@@ -17,6 +17,9 @@ local.properties
 # External tool builders
 .externalToolBuilders/
 
+# ignore properties file
+db.properties	
+
 # Locally stored "Eclipse launch configurations"
 *.launch
 
