@@ -1,3 +1,5 @@
+# ignore properties file
+/src/main/resources/dbconfig.properties
 
 ### Eclipse ###
 .metadata
@@ -14,10 +16,6 @@ local.properties
 
 # External tool builders
 .externalToolBuilders/
-
-# ignore properties file
-**/src/main/resources/db.properties
-	
 
 # Locally stored "Eclipse launch configurations"
 *.launch

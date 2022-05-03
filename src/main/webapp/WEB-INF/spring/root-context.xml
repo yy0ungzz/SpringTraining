@@ -9,16 +9,16 @@
 	추가 라이브러리에 대한 설정 내용과 로직처리에 대한 내용에 집중된 설정을 한다. -->
 	
 	<!-- db.properties 경로 설정 -->
-	<context:property-placeholder location="classpath:/db.properties"/>
+	<context:property-placeholder location="classpath:/dbconfig.properties"/>
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- MyBatis 설정 정보를 등록한다. -->
 	<!-- DB접속 정보 -->
 	<bean id="dataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${jdbc.driver}"/>
-		<property name="url" value="${jdbc.url}"/>
-		<property name="username" value="${jdbc.username}"/>
-		<property name="password" value="${jdbc.password}"/>
+		<property name="driverClassName" value="${oraclecloud.driver}"/>
+		<property name="url" value="${oraclecloud.url}"/>
+		<property name="username" value="${oraclecloud.username}"/>
+		<property name="password" value="${oraclecloud.password}"/>
 	</bean>
 	
 	
